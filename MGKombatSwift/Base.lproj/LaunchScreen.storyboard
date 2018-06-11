@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,25 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MG KOMBAT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iO-Hc-gG3">
-                                <rect key="frame" x="75" y="311.5" width="226.5" height="45.5"/>
+                                <rect key="frame" x="75" y="180" width="226.5" height="45.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                                 <color key="textColor" red="1" green="0.15370798490000001" blue="0.2836977423" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="In1-Ce-2m0">
+                                <rect key="frame" x="99.5" y="255.5" width="176" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="176" id="Qlj-Jn-pTO"/>
+                                    <constraint firstAttribute="height" constant="176" id="aPO-zS-2l5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8iO-Hc-gG3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BXe-Do-HCg"/>
+                            <constraint firstItem="In1-Ce-2m0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Fg-1y-BeN"/>
+                            <constraint firstItem="In1-Ce-2m0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Nxk-be-yhC"/>
                             <constraint firstItem="8iO-Hc-gG3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UV8-pk-DC3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8iO-Hc-gG3" secondAttribute="trailing" constant="8" id="gBC-Rn-2kH"/>
                             <constraint firstItem="8iO-Hc-gG3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="hCn-j1-oSh"/>
+                            <constraint firstItem="In1-Ce-2m0" firstAttribute="top" secondItem="8iO-Hc-gG3" secondAttribute="bottom" constant="30" id="r9A-Fs-57N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo.png" width="512" height="512"/>
+    </resources>
 </document>

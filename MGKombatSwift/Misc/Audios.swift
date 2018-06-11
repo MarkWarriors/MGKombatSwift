@@ -50,9 +50,13 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
     
     
     static let shared = Audios()
+    
     private var repeatAudio : Bool = false
     private var audioPlayer : AVAudioPlayer?
     private var lastAudioType : AudioType = .none
+    private var currentUrl : URL?
+    
+    public var isPlaying : Bool = false
     
     override init() {
         super.init()
@@ -71,6 +75,7 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
         
         self.repeatAudio = repeating
         
+        self.currentUrl = url
         try! audioPlayer = AVAudioPlayer.init(contentsOf: url)
         audioPlayer?.delegate = self
         audioPlayer?.prepareToPlay()
@@ -78,11 +83,21 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
     }
     
     func stopAudio(){
+        isPlaying = false
         audioPlayer?.stop()
+    }
+    
+    func pauseAudio(){
+        isPlaying = false
+        audioPlayer?.pause()
+    }
+    
+    func resumeAudio(){
+        isPlaying = true
+        audioPlayer?.play()
     }
 
     func play(audioType: AudioType, forceChange: Bool){
-        
         if !forceChange && audioType == self.lastAudioType &&
             (audioPlayer?.isPlaying)! {
             return
@@ -95,7 +110,7 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
         case .none:
             break
         case .mainTheme:
-            self.playMainTheme()
+            self.playMainTheme(random: true)
             break
         case .presentation:
             self.playPresentation()
@@ -112,10 +127,28 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    private func playMainTheme() {
-        let randomChoice = Int(arc4random_uniform(UInt32((self.mainTheme.count))))
-        let randomUrl : URL = self.mainTheme[randomChoice]
-        self.playAudio(url: randomUrl, repeating: true)
+    private func playMainTheme(random: Bool) {
+        let url : URL?
+        if random {
+            let randomChoice = Int(arc4random_uniform(UInt32((self.mainTheme.count))))
+            url = self.mainTheme[randomChoice]
+        }
+        else {
+            var currentIdx = 1
+            if currentUrl != nil {
+                currentIdx = self.mainTheme.index(of: currentUrl!) ?? 1
+            }
+            if currentIdx == 0 {
+                url = self.mainTheme.last
+            }
+            else if currentIdx == self.mainTheme.count - 1{
+                url = self.mainTheme.first
+            }
+            else {
+                url = self.mainTheme[currentIdx]
+            }
+        }
+        self.playAudio(url: url!, repeating: true)
     }
     
     private func playPresentation() {
@@ -144,5 +177,15 @@ final class Audios: NSObject, AVAudioPlayerDelegate {
     
     func nextSong() {
         self.play(audioType: self.lastAudioType, forceChange: true)
+        isPlaying = true
+    }
+    
+    func nextThemeSong() {
+        self.play(audioType: .battle, forceChange: true)
+        isPlaying = true
+    }
+    
+    func prevThemeSong(){
+        self.play(audioType: .battle, forceChange: true)
     }
 }

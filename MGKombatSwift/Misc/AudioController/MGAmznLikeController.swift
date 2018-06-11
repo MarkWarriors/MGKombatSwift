@@ -73,7 +73,7 @@ import UIKit
 
     private var actionTriggered : ActionTriggered = .noAction
     private var controllerMovement : ControllerMovement = .noMovement
-    private var controllerStatus : ControllerStatus = .pause
+    var controllerStatus : ControllerStatus = .pause
     private var panGesture : UIPanGestureRecognizer?
     private var maxHorizontalMovement : CGFloat = 0
     private let horizontalTriggerPoint : CGFloat = 50
@@ -160,6 +160,7 @@ import UIKit
     public func setControllerImage(_ image: UIImage?, forStatus status: ControllerStatus) {
         self.controllerImageForStatus[status] = image
         self.controllerCentralImg.image = self.controllerImageForStatus[self.controllerStatus] ?? nil
+        
     }
     
     public func setControllerBackgroundImage(_ image: UIImage?) {
@@ -181,20 +182,20 @@ import UIKit
     }
 
     private func openSubController(animated: Bool){
-        self.subControllerView.isHidden = false
-        UIView.animate(withDuration: animated ? 0.25 : 0.0,
-                       delay: 0,
-                       usingSpringWithDamping: 0.35,
-                       initialSpringVelocity: 0.35,
-                       options: UIViewAnimationOptions.curveEaseIn,
-                       animations: {
-                        self.subControllerView.mgalcCornerRadius = (self.controllerView.frame.size.height / 2 + self.openedSubcontrollerHeight / 2)
-                        self.subcontrollerHeightCnstr.constant = self.openedSubcontrollerHeight
-                        self.fullContainerView.layoutSubviews()
-                        
-        }, completion: { (value: Bool) in
-            self.delegate?.didOpenSubController?()
-        })
+//        self.subControllerView.isHidden = false
+//        UIView.animate(withDuration: animated ? 0.25 : 0.0,
+//                       delay: 0,
+//                       usingSpringWithDamping: 0.35,
+//                       initialSpringVelocity: 0.35,
+//                       options: UIViewAnimationOptions.curveEaseIn,
+//                       animations: {
+//                        self.subControllerView.mgalcCornerRadius = (self.controllerView.frame.size.height / 2 + self.openedSubcontrollerHeight / 2)
+//                        self.subcontrollerHeightCnstr.constant = self.openedSubcontrollerHeight
+//                        self.fullContainerView.layoutSubviews()
+//
+//        }, completion: { (value: Bool) in
+//            self.delegate?.didOpenSubController?()
+//        })
     }
 
     private func closeSubController(animated: Bool){

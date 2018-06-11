@@ -78,6 +78,11 @@
 		9082276520CE64A80085022F /* FighterCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9082272320CE64A70085022F /* FighterCreator.swift */; };
 		9082276B20CE64E00085022F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9082276720CE64E00085022F /* LaunchScreen.storyboard */; };
 		9082276C20CE64E00085022F /* Fight.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9082276920CE64E00085022F /* Fight.storyboard */; };
+		90EB110820CE6FAD002B0989 /* left_arrow_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110720CE6FAC002B0989 /* left_arrow_white.png */; };
+		90EB110A20CE6FBB002B0989 /* right_arrow_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110920CE6FBB002B0989 /* right_arrow_white.png */; };
+		90EB110D20CE6FE8002B0989 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110B20CE6FE8002B0989 /* play_icon.png */; };
+		90EB110E20CE6FE8002B0989 /* pause_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110C20CE6FE8002B0989 /* pause_icon.png */; };
+		90EB111020CE8C2A002B0989 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110F20CE8C2A002B0989 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +159,11 @@
 		9082272320CE64A70085022F /* FighterCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FighterCreator.swift; sourceTree = "<group>"; };
 		9082276820CE64E00085022F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MGKombatSwift/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		9082276A20CE64E00085022F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = MGKombatSwift/Base.lproj/Fight.storyboard; sourceTree = SOURCE_ROOT; };
+		90EB110720CE6FAC002B0989 /* left_arrow_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left_arrow_white.png; path = "../../../../../../Elipse/it.elipse.toctocbox.app.android/app/src/main/res/drawable-xxhdpi/left_arrow_white.png"; sourceTree = "<group>"; };
+		90EB110920CE6FBB002B0989 /* right_arrow_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right_arrow_white.png; path = ../../../../../MGAmznLikeController/MGAmznLikeController/Images/right_arrow_white.png; sourceTree = "<group>"; };
+		90EB110B20CE6FE8002B0989 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_icon.png; path = ../../../../../MGAmznLikeController/MGAmznLikeController/Images/play_icon.png; sourceTree = "<group>"; };
+		90EB110C20CE6FE8002B0989 /* pause_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause_icon.png; path = ../../../../../MGAmznLikeController/MGAmznLikeController/Images/pause_icon.png; sourceTree = "<group>"; };
+		90EB110F20CE8C2A002B0989 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../../../Downloads/mgk/ios/logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +250,11 @@
 		908226CF20CE64A70085022F /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				90EB110F20CE8C2A002B0989 /* logo.png */,
+				90EB110C20CE6FE8002B0989 /* pause_icon.png */,
+				90EB110B20CE6FE8002B0989 /* play_icon.png */,
+				90EB110720CE6FAC002B0989 /* left_arrow_white.png */,
+				90EB110920CE6FBB002B0989 /* right_arrow_white.png */,
 				908226D020CE64A70085022F /* downCaret.png */,
 				908226D120CE64A70085022F /* whiteLeftCaret.png */,
 			);
@@ -492,6 +507,7 @@
 				9082272520CE64A70085022F /* whiteLeftCaret.png in Resources */,
 				9082273A20CE64A80085022F /* arcade_theme.mp3 in Resources */,
 				9082273220CE64A70085022F /* tonnie.png in Resources */,
+				90EB110820CE6FAD002B0989 /* left_arrow_white.png in Resources */,
 				9082274820CE64A80085022F /* LocationSelectionCell.xib in Resources */,
 				9082272620CE64A70085022F /* mochi.png in Resources */,
 				9082274F20CE64A80085022F /* PlayerView.xib in Resources */,
@@ -503,6 +519,8 @@
 				9082273320CE64A70085022F /* forchettone.png in Resources */,
 				9082273820CE64A80085022F /* elettronica_theme.mp3 in Resources */,
 				9082272E20CE64A70085022F /* grandcathedral.png in Resources */,
+				90EB110D20CE6FE8002B0989 /* play_icon.png in Resources */,
+				90EB110A20CE6FBB002B0989 /* right_arrow_white.png in Resources */,
 				9082274A20CE64A80085022F /* FightActionCell.xib in Resources */,
 				9082272920CE64A70085022F /* frida.png in Resources */,
 				9082276B20CE64E00085022F /* LaunchScreen.storyboard in Resources */,
@@ -511,6 +529,7 @@
 				9082273520CE64A70085022F /* ff7victory.mp3 in Resources */,
 				9082272F20CE64A70085022F /* rapture.png in Resources */,
 				9082272B20CE64A70085022F /* connie.png in Resources */,
+				90EB111020CE8C2A002B0989 /* logo.png in Resources */,
 				9082272A20CE64A70085022F /* maruko.png in Resources */,
 				9082275220CE64A80085022F /* ControlsView.xib in Resources */,
 				9082272820CE64A70085022F /* giuky.png in Resources */,
@@ -518,6 +537,7 @@
 				9082272720CE64A70085022F /* tommaso.png in Resources */,
 				9082273720CE64A80085022F /* drum.wav in Resources */,
 				90159C6120CE6D420042217D /* MGAmznLikeController.xib in Resources */,
+				90EB110E20CE6FE8002B0989 /* pause_icon.png in Resources */,
 				9082273120CE64A70085022F /* tokyo.png in Resources */,
 				9082274720CE64A80085022F /* FightAbilityTableViewCell.xib in Resources */,
 				9082272420CE64A70085022F /* downCaret.png in Resources */,

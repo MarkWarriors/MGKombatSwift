@@ -46,7 +46,7 @@ class SelectLocationVC: UIViewController, UICollectionViewDataSource, UICollecti
     
     @IBAction func backBtnTap(_ sender: Any) {
         GameInstance.game.location = nil
-        MGCNaviagation.controller?.popViewController(animated: true)
+        MGCNaviagation.shared.back(animated: true)
     }
     
     func goToCombatPresentation(){

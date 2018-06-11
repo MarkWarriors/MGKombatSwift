@@ -21,7 +21,7 @@ class OptionsSceneVC: UIViewController {
     
     @IBAction func exitTap(_ sender: Any) {
         GameInstance.game.stop()
-        self.dismiss(animated: false, completion: { MGCNaviagation.toSelectPlayer() })
+        self.dismiss(animated: false, completion: { MGCNaviagation.shared.toSelectPlayer() })
     }
     
     @IBAction func closeTap(_ sender: Any) {

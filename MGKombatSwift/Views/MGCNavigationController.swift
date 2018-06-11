@@ -13,10 +13,7 @@ class MGCNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        MGCNaviagation.controller = self
+        MGCNaviagation.shared.setNavigationController(self)
     }
-
-    
-
 
 }

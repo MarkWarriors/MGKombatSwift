@@ -25,9 +25,6 @@ class CombatSceneVC: UIViewController {
     }
     
     func initializeControls(){
-        self.controlsView.optionsCall = {
-            self.performSegue(withIdentifier: Segues.options, sender: self)
-        }
         
         self.controlsView.fightActionCall = { action in
             GameInstance.game.fight(action: action, byFighter: GameInstance.game.player!)

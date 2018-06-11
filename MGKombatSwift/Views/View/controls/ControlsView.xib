@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ControlsView" customModule="MGKombatSwift" customModuleProvider="target">
             <connections>
                 <outlet property="actionOverlayView" destination="idT-I9-z2c" id="0Bv-U5-TST"/>
+                <outlet property="audioController" destination="Vbn-Vd-Vcx" id="AT2-2u-CHE"/>
                 <outlet property="fightActionCollectionView" destination="vWI-My-Dar" id="51V-UD-ChB"/>
                 <outlet property="fightBtn" destination="VBm-FH-n1Y" id="3aI-NU-2ig"/>
                 <outlet property="fighterItemsCollectionView" destination="o4D-Ym-xYz" id="ITS-04-7F3"/>
@@ -31,10 +32,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH4-VE-TA0">
-                    <rect key="frame" x="8" y="21" width="367" height="140"/>
+                    <rect key="frame" x="8" y="15.5" width="367" height="110"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJv-Wg-v3i">
-                            <rect key="frame" x="183.5" y="2" width="181.5" height="136"/>
+                            <rect key="frame" x="183.5" y="2" width="181.5" height="106"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBm-FH-n1Y">
                                     <rect key="frame" x="8" y="8" width="165.5" height="33"/>
@@ -47,7 +48,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-wO-Gtf">
-                                    <rect key="frame" x="8" y="51.5" width="165.5" height="33"/>
+                                    <rect key="frame" x="8" y="36.5" width="165.5" height="33"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                     <state key="normal" title="ITEMS">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -57,7 +58,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAJ-0h-lLj">
-                                    <rect key="frame" x="8" y="95" width="165.5" height="33"/>
+                                    <rect key="frame" x="8" y="65" width="165.5" height="33"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                     <state key="normal" title="OPTIONS">
                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,10 +68,10 @@
                                     </connections>
                                 </button>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idT-I9-z2c">
-                                    <rect key="frame" x="2" y="6" width="173.5" height="124"/>
+                                    <rect key="frame" x="2" y="6" width="173.5" height="94"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-Ym-xYz">
-                                            <rect key="frame" x="-0.5" y="0.0" width="173.5" height="124"/>
+                                            <rect key="frame" x="-0.5" y="0.0" width="173.5" height="94"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dnt-Ga-BaY">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -84,7 +85,7 @@
                                             </connections>
                                         </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vWI-My-Dar">
-                                            <rect key="frame" x="0.0" y="0.0" width="173.5" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173.5" height="94"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GlR-O2-6tv">
                                                 <size key="itemSize" width="50" height="50"/>
@@ -98,7 +99,7 @@
                                             </connections>
                                         </collectionView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvL-L6-cJU">
-                                            <rect key="frame" x="0.0" y="110" width="173" height="14"/>
+                                            <rect key="frame" x="0.0" y="80" width="173" height="14"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="downCaret.png" translatesAutoresizingMaskIntoConstraints="NO" id="grV-9R-UdE">
                                                     <rect key="frame" x="78.5" y="10" width="16" height="4"/>
@@ -178,7 +179,7 @@
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="22"/>
+                                    <real key="value" value="15"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                     <real key="value" value="1"/>
@@ -189,7 +190,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fn4-hB-avQ">
-                            <rect key="frame" x="0.0" y="0.0" width="183.5" height="140"/>
+                            <rect key="frame" x="0.0" y="0.0" width="183.5" height="102"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story and narration Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qb3-u2-Jgv">
                                     <rect key="frame" x="16" y="16" width="151.5" height="41"/>
@@ -213,15 +214,15 @@
                         <constraint firstAttribute="centerX" secondItem="fn4-hB-avQ" secondAttribute="trailing" id="8CY-CV-ZK8"/>
                         <constraint firstItem="iJv-Wg-v3i" firstAttribute="top" secondItem="NH4-VE-TA0" secondAttribute="top" constant="2" id="8bE-7s-pYH"/>
                         <constraint firstItem="fn4-hB-avQ" firstAttribute="top" secondItem="NH4-VE-TA0" secondAttribute="top" id="Ahp-Xq-fao"/>
-                        <constraint firstAttribute="height" constant="140" id="EcY-Oq-LJs"/>
+                        <constraint firstAttribute="height" constant="110" id="EcY-Oq-LJs"/>
                         <constraint firstAttribute="trailing" secondItem="iJv-Wg-v3i" secondAttribute="trailing" constant="2" id="F2B-O7-u37"/>
                         <constraint firstItem="iJv-Wg-v3i" firstAttribute="leading" secondItem="fn4-hB-avQ" secondAttribute="trailing" id="FnJ-YO-Qhf"/>
-                        <constraint firstAttribute="bottom" secondItem="fn4-hB-avQ" secondAttribute="bottom" id="I9P-28-Fp7"/>
+                        <constraint firstAttribute="bottom" secondItem="fn4-hB-avQ" secondAttribute="bottom" constant="8" id="I9P-28-Fp7"/>
                         <constraint firstItem="fn4-hB-avQ" firstAttribute="leading" secondItem="NH4-VE-TA0" secondAttribute="leading" id="ie3-UB-PuS"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="22"/>
+                            <real key="value" value="15"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                             <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -231,32 +232,25 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dd8-j3-SS8">
-                    <rect key="frame" x="8" y="161" width="367" height="20"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="CHANGE SONG">
-                        <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbn-Vd-Vcx" customClass="MGAmznLikeController" customModule="MGKombatSwift" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="125.5" width="383" height="55"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="changeSongBtnTap:" destination="-1" eventType="touchUpInside" id="dbN-te-Aof"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Dd8-j3-SS8" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="6Vj-ZV-Khd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Dd8-j3-SS8" secondAttribute="trailing" constant="8" id="Ndx-Nt-eRt"/>
-                <constraint firstItem="Dd8-j3-SS8" firstAttribute="top" secondItem="NH4-VE-TA0" secondAttribute="bottom" id="aaT-XS-MCh"/>
+                <constraint firstItem="Vbn-Vd-Vcx" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="1FC-Ws-TZe"/>
+                <constraint firstItem="Vbn-Vd-Vcx" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Izh-OS-F6P"/>
+                <constraint firstItem="Vbn-Vd-Vcx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OE4-Ed-hBu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NH4-VE-TA0" secondAttribute="trailing" constant="8" id="oa3-53-EPJ"/>
-                <constraint firstItem="NH4-VE-TA0" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="qSQ-Iq-2Im"/>
+                <constraint firstItem="NH4-VE-TA0" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-20" id="qSQ-Iq-2Im"/>
                 <constraint firstItem="NH4-VE-TA0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="sNH-5z-a1q"/>
-                <constraint firstItem="Dd8-j3-SS8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="xHU-0g-6g1"/>
+                <constraint firstItem="Vbn-Vd-Vcx" firstAttribute="top" secondItem="NH4-VE-TA0" secondAttribute="bottom" id="zuc-nh-kF8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

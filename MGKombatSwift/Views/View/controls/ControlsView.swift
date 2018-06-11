@@ -24,9 +24,10 @@ class ControlsView: GenericView, UICollectionViewDataSource, UICollectionViewDel
     @IBOutlet weak var fightActionCollectionView: UICollectionView!
     @IBOutlet weak var fighterItemsCollectionView: UICollectionView!
     
+    @IBOutlet weak var audioController: MGAmznLikeController!
+    
     var fightActionCall : ((_ action: FightAction)->())?
     var itemsActionCall : ((_ action: FighterItem)->())?
-    var optionsCall : (()->())?
     
     internal var fighter : Fighter?
     // MARK: LAYOUT INITIALIZATION
@@ -63,6 +64,10 @@ class ControlsView: GenericView, UICollectionViewDataSource, UICollectionViewDel
     func xibSetup(){
         narrationLbl.text = ""
         fightActionCollectionView.register(UINib.init(nibName: FightActionCell.Identifier, bundle: nil), forCellWithReuseIdentifier: FightActionCell.Identifier)
+        self.audioController.delegate = MGCNaviagation.shared
+        self.audioController.controllerStatus = .play
+        self.audioController.setControllerImage(UIImage.init(named: "play_icon.png"), forStatus: .play)
+        self.audioController.setControllerImage(UIImage.init(named: "pause_icon.png"), forStatus: .pause)
         resetToInitialViewState()
     }
 
@@ -174,7 +179,7 @@ class ControlsView: GenericView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     @IBAction func optionsBtnTap(_ sender: Any) {
-        self.optionsCall?()
+        MGCNaviagation.shared.showOptions()
     }
     
     @IBAction func changeSongBtnTap(_ sender: Any) {

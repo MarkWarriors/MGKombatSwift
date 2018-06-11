@@ -165,27 +165,27 @@ final class GameInstance {
                     self.combatScene?.playerView.itemImageView.alpha = 1
                 })
             }
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") per pestare il nemico!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") to beat his enemy!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.combatScene?.opponentView.damageFighterWith(item: item)
                 endItem()
             })
             break
         case .addDamage:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), diventa più forte!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), and become OVERPOWA!")
             endItem()
             break
         case .addResistance:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), diventa più resistente!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), and become MORE REXISTANTT!")
             endItem()
             break
         case .doubleTurn:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") e raddoppia il suo turno!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") and double up his turn!")
             self.additionalPlayerTurn = 1
             endItem()
             break
         case .damageEnemyHealSelf:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), si cura e danneggia l'avversario!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), healing himself while damaging the enemy!")
             self.combatScene?.playerView.healFighterWith(item: item)
             self.combatScene?.opponentView.damageFighterWith(item: item)
             endItem()
@@ -194,7 +194,7 @@ final class GameInstance {
             self.combatScene?.controlsView.narrate(text: "FU SIO NEHHH")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.combatScene?.playerView.itemImageView.alpha = 0
-                self.combatScene?.controlsView.narrate(text: "ECCO \(item.itemAssociatedFighter?.name?.uppercased() ?? "")!!")
+                self.combatScene?.controlsView.narrate(text: "AND HERE IS \(item.itemAssociatedFighter?.name?.uppercased() ?? "")!!")
                 item.itemAssociatedFighter?.items = (GameInstance.game.player?.items)!
                 GameInstance.game.player = item.itemAssociatedFighter
                 self.combatScene?.playerView.generateViewForFighter(fighter: GameInstance.game.player!)
@@ -209,9 +209,9 @@ final class GameInstance {
             })
             break
         case .tagTeamHelp:
-            self.combatScene?.controlsView.narrate(text: "Arriva \(item.itemAssociatedFighter?.name?.uppercased() ?? "???") in aiuto!!")
+            self.combatScene?.controlsView.narrate(text: "Watch out, \(item.itemAssociatedFighter?.name?.uppercased() ?? "???") coming for help!!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                self.combatScene?.controlsView.narrate(text: "Eccolohhh!!!")
+                self.combatScene?.controlsView.narrate(text: "HERE IS!!!")
                 self.combatScene?.playerView.itemImageView.alpha = 0
                 self.combatScene?.playerView.itemImageView.image = item.itemAssociatedFighter?.image
                 UIView.animate(withDuration: 0.5, animations: {
@@ -220,7 +220,7 @@ final class GameInstance {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     let action = item.itemAssociatedFighter?.randomAttack()
-                    self.combatScene?.controlsView.narrate(text: "\(item.itemAssociatedFighter?.name?.uppercased() ?? "???") attacca \(item.effectValue) \(item.effectValue == 1 ? "volta" : "volte" ) con \(action?.name ?? "")!")
+                    self.combatScene?.controlsView.narrate(text: "\(item.itemAssociatedFighter?.name?.uppercased() ?? "???") attack \(item.effectValue) \(item.effectValue == 1 ? "time" : "times" ) with \(action?.name ?? "")!")
                     action?.damage = (action?.damage)! * item.effectValue
                     self.combatScene?.opponentView.damageFighterWith(fightAction: action!)
                     endItem()

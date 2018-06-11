@@ -27,7 +27,7 @@ class DefeatSceneVC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
             GameInstance.game.stop()
             self.dismiss(animated: false, completion: {
-                MGCNaviagation.toSelectPlayer()
+                MGCNaviagation.shared.toSelectPlayer()
             })
         })
     }

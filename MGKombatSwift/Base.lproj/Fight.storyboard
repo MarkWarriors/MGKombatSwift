@@ -22,6 +22,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="oCa-Kz-d8X" kind="relationship" relationship="rootViewController" id="Md1-tb-JH2"/>
+                        <segue destination="AeT-yA-cdO" kind="presentation" identifier="toOptions" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="LxF-HK-Y2b"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DfL-p3-gTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,7 +553,6 @@
                         <outlet property="controlsView" destination="JkT-Rl-oz8" id="eun-T9-ebr"/>
                         <outlet property="opponentView" destination="N8u-8L-8vN" id="Frr-yf-3E4"/>
                         <outlet property="playerView" destination="yRC-bc-2hI" id="T5X-Wj-SYN"/>
-                        <segue destination="AeT-yA-cdO" kind="presentation" identifier="toOptions" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="xmE-zQ-n7i"/>
                         <segue destination="V4p-e1-8m9" kind="presentation" identifier="toDefeat" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="REt-70-NWA"/>
                         <segue destination="q5z-is-77W" kind="presentation" identifier="toWin" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="S3u-Kg-MBf"/>
                     </connections>
@@ -675,7 +675,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.48474424751243783" green="0.48474424751243783" blue="0.48474424751243783" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.2401460981638418" green="0.2401460981638418" blue="0.2401460981638418" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ynt-mO-yFd" firstAttribute="leading" secondItem="roI-lR-IKD" secondAttribute="leading" constant="24" id="2bq-Kt-jWb"/>
                             <constraint firstItem="roI-lR-IKD" firstAttribute="trailing" secondItem="ynt-mO-yFd" secondAttribute="trailing" constant="24" id="hmY-OZ-U5P"/>
@@ -686,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQ4-5M-EqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="-953.07346326836591"/>
+            <point key="canvasLocation" x="-1230" y="-930"/>
         </scene>
         <!--Defeat SceneVC-->
         <scene sceneID="fzN-2q-yy3">

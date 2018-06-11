@@ -39,7 +39,7 @@ class FighterDetailsVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func backBtnTap(_ sender: Any) {
-        MGCNaviagation.controller?.popViewController(animated: true)
+        MGCNaviagation.shared.back(animated: true)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

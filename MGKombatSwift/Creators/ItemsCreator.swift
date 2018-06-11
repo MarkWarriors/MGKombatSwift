@@ -78,7 +78,7 @@ class ItemsCreator : NSObject {
     
     public func fusionWithTommy(x: Int) -> FighterItem {
         let item : FighterItem = FighterItem.init()
-        item.name = "FU SIO NEH"
+        item.name = "FU SI ON!!!"
         item.amount = x
         item.itemAssociatedFighter = FighterCreator.shared.tonnie(isTagTeam: true)
         item.effect = .fusion
