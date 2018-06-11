@@ -83,6 +83,7 @@
 		90EB110D20CE6FE8002B0989 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110B20CE6FE8002B0989 /* play_icon.png */; };
 		90EB110E20CE6FE8002B0989 /* pause_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110C20CE6FE8002B0989 /* pause_icon.png */; };
 		90EB111020CE8C2A002B0989 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90EB110F20CE8C2A002B0989 /* logo.png */; };
+		90EB112320CE8EED002B0989 /* MGCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EB111220CE8EED002B0989 /* MGCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		90EB110B20CE6FE8002B0989 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_icon.png; path = ../../../../../MGAmznLikeController/MGAmznLikeController/Images/play_icon.png; sourceTree = "<group>"; };
 		90EB110C20CE6FE8002B0989 /* pause_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause_icon.png; path = ../../../../../MGAmznLikeController/MGAmznLikeController/Images/pause_icon.png; sourceTree = "<group>"; };
 		90EB110F20CE8C2A002B0989 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../../../Downloads/mgk/ios/logo.png; sourceTree = "<group>"; };
+		90EB111220CE8EED002B0989 /* MGCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,12 +344,12 @@
 			isa = PBXGroup;
 			children = (
 				908226F120CE64A70085022F /* FighterDetailsVC.swift */,
-				908226F220CE64A70085022F /* CombatPresentationVC.swift */,
-				908226F320CE64A70085022F /* WinSceneVC.swift */,
-				908226F420CE64A70085022F /* CombatSceneVC.swift */,
 				908226F520CE64A70085022F /* SelectPlayerVC.swift */,
-				908226F620CE64A70085022F /* OptionsSceneVC.swift */,
 				908226F720CE64A70085022F /* SelectLocationVC.swift */,
+				908226F620CE64A70085022F /* OptionsSceneVC.swift */,
+				908226F220CE64A70085022F /* CombatPresentationVC.swift */,
+				908226F420CE64A70085022F /* CombatSceneVC.swift */,
+				908226F320CE64A70085022F /* WinSceneVC.swift */,
 				908226F820CE64A70085022F /* DefeatSceneVC.swift */,
 			);
 			path = ViewControllers;
@@ -379,12 +381,12 @@
 		908226FB20CE64A70085022F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				908226FF20CE64A70085022F /* LocationSelectionCell.xib */,
 				908226FC20CE64A70085022F /* LocationSelectionCell.swift */,
+				9082270120CE64A70085022F /* FightActionCell.xib */,
 				908226FD20CE64A70085022F /* FightActionCell.swift */,
 				908226FE20CE64A70085022F /* FightAbilityTableViewCell.xib */,
-				908226FF20CE64A70085022F /* LocationSelectionCell.xib */,
 				9082270020CE64A70085022F /* FightAbilityTableViewCell.swift */,
-				9082270120CE64A70085022F /* FightActionCell.xib */,
 				9082270220CE64A70085022F /* FighterSelectionCell.xib */,
 				9082270320CE64A70085022F /* FighterSelectionCell.swift */,
 			);
@@ -415,6 +417,7 @@
 		9082271420CE64A70085022F /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				90EB111120CE8EED002B0989 /* MGCollectionView */,
 				90159C5E20CE6D410042217D /* AudioController */,
 				9082271520CE64A70085022F /* Strings.swift */,
 				9082271620CE64A70085022F /* Segues.swift */,
@@ -443,6 +446,15 @@
 				9082276720CE64E00085022F /* LaunchScreen.storyboard */,
 			);
 			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		90EB111120CE8EED002B0989 /* MGCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				90EB111220CE8EED002B0989 /* MGCollectionView.swift */,
+			);
+			name = MGCollectionView;
+			path = ../../../MGCollectionView/MGCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +579,7 @@
 				9082275420CE64A80085022F /* GenericView.swift in Sources */,
 				90159C6220CE6D420042217D /* MGAmznLikeController.swift in Sources */,
 				9082274220CE64A80085022F /* OptionsSceneVC.swift in Sources */,
+				90EB112320CE8EED002B0989 /* MGCollectionView.swift in Sources */,
 				908226C320CE64880085022F /* AppDelegate.swift in Sources */,
 				9082274120CE64A80085022F /* SelectPlayerVC.swift in Sources */,
 				9082275320CE64A80085022F /* ControlsView.swift in Sources */,

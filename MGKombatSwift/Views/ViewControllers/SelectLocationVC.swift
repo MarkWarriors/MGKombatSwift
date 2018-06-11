@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class SelectLocationVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-    
+class SelectLocationVC: UIViewController, MGCollectionViewProtocol  {
+
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var fightBtn: UIButton!
     @IBOutlet weak var selectLbl: UILabel!
-    @IBOutlet weak var locationsCollectionView: UICollectionView!
+    @IBOutlet weak var locationsCollectionView: MGCollectionView!
     
     @IBOutlet weak var selectedLocationLbl: UILabel!
     
@@ -22,13 +22,6 @@ class SelectLocationVC: UIViewController, UICollectionViewDataSource, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationsCollectionView.allowsMultipleSelection = false
-        locationsCollectionView.register(UINib.init(nibName: LocationSelectionCell.Identifier, bundle: nil), forCellWithReuseIdentifier: LocationSelectionCell.Identifier)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        GameInstance.game.location = nil
         locations = LocationsCreator.shared.getAllLocations()
         selectedLocationLbl.text = ""
         if locationsCollectionView.indexPathsForSelectedItems != nil {
@@ -36,6 +29,15 @@ class SelectLocationVC: UIViewController, UICollectionViewDataSource, UICollecti
                 locationsCollectionView.deselectItem(at: indexPath, animated: false)
             }
         }
+        locationsCollectionView.allowsMultipleSelection = false
+        locationsCollectionView.pullToRefresh = false
+        locationsCollectionView.cellIdentifier = LocationSelectionCell.Identifier
+        locationsCollectionView.cellNib = UINib.init(nibName: LocationSelectionCell.Identifier, bundle: nil)
+        locationsCollectionView.protocolDelegate = self
+        locationsCollectionView.initWithCellFixedNumberOf((iphonePortrait: 2, iphoneLandscape: 3, ipadPortrait: 3, ipadLandscape: 6), cellProportions:  (width: 1, height: 1), andSpacing: (top: 8, left: 8, bottom: 8, right: 8))
+        GameInstance.game.location = nil
+
+        
     }
 
     @IBAction func fightBtnTap(_ sender: Any) {
@@ -56,61 +58,34 @@ class SelectLocationVC: UIViewController, UICollectionViewDataSource, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
     }
-
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : LocationSelectionCell = locationsCollectionView.dequeueReusableCell(
-            withReuseIdentifier: LocationSelectionCell.Identifier,
-            for: indexPath) as! LocationSelectionCell
-        
-        cell.generateViewFor(location:  (self.locations[indexPath.row]))
-        
-        return cell
+    func collectionViewSelected(cell: UICollectionViewCell, withItem item: Any) {
+        if let selectedLocation = item as? FightLocation, GameInstance.game.location == nil {
+            GameInstance.game.location = selectedLocation
+            selectedLocationLbl.text = selectedLocation.name
+        }
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (self.locations.count)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let selectedLocation = self.locations[indexPath.row]
-        if selectedLocation == GameInstance.game.location {
+    func collectionViewDeselected(cell: UICollectionViewCell, withItem item: Any) {
+        if let selectedLocation = item as? FightLocation, selectedLocation == GameInstance.game.location {
             GameInstance.game.location = nil
             selectedLocationLbl.text = ""
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let selectedLocation = self.locations[indexPath.row]
-        
-        if GameInstance.game.location == nil {
-            GameInstance.game.location = selectedLocation
-            selectedLocationLbl.text = selectedLocation.name
+    func collectionViewDisplayItem(_ item: Any, inCell cell: UICollectionViewCell) -> UICollectionViewCell {
+        if let cell = cell as? LocationSelectionCell{
+            cell.generateViewFor(location: item as! FightLocation)
         }
+        return cell
+    }
+    
+    func collectionViewRequestDataForPage(page: Int, valuesCallback: @escaping ([Any]?) -> ()) {
+        valuesCallback(locations)
+    }
+    
 
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = Int(self.locationsCollectionView.frame.width)/3 - 12
-        return CGSize.init(width: width, height: width*2)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: 4, left: 2, bottom: 0, right: 2)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
+
     
 
 }
