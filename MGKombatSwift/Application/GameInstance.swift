@@ -60,14 +60,14 @@ final class GameInstance {
     
     func startPlayerTurn() {
         if self.gameContinue() {
-            self.combatScene?.controlsView.narrate(text: "Tocca a \(self.player?.name ?? "")")
+            self.combatScene?.controlsView.narrate(text: "It's \(self.player?.name ?? " turn")")
             self.combatScene?.controlsView.isUserInteractionEnabled = true
         }
     }
     
     func startOpponentTurn() {
         if self.gameContinue() {
-            self.combatScene?.controlsView.narrate(text: "È il turno di \(self.opponent?.name ?? "")")
+            self.combatScene?.controlsView.narrate(text: "It's  \(self.opponent?.name ?? " turn")")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.combatScene?.opponentView.artificialInteligenceFightTurn()
             })
@@ -105,9 +105,10 @@ final class GameInstance {
         }
         return true
     }
+
     
     func fight(action: FightAction, byFighter: Fighter){
-        self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") attacca con \(action.name ?? "")!!")
+        self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") attack with \(action.name ?? "")!!")
         
         if byFighter == player {
             self.combatScene?.controlsView.isUserInteractionEnabled = false
@@ -137,7 +138,6 @@ final class GameInstance {
     
     
     func used(item: FighterItem, byFighter: Fighter){
-        
         let endItem : (()->()) = {
             if self.gameContinue() {
                 if byFighter == self.player {
@@ -153,7 +153,7 @@ final class GameInstance {
         switch item.effect {
         case .heal:
             self.combatScene?.playerView.healFighterWith(item: item)
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? "") e si cura!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") for healing himself!")
             endItem()
             break
         case .damage:
@@ -165,27 +165,27 @@ final class GameInstance {
                     self.combatScene?.playerView.itemImageView.alpha = 1
                 })
             }
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? "") per pestare il nemico!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") per pestare il nemico!")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 self.combatScene?.opponentView.damageFighterWith(item: item)
                 endItem()
             })
             break
         case .addDamage:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? ""), diventa più forte!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), diventa più forte!")
             endItem()
             break
         case .addResistance:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? ""), diventa più resistente!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), diventa più resistente!")
             endItem()
             break
         case .doubleTurn:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? "") e raddoppia il suo turno!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? "") e raddoppia il suo turno!")
             self.additionalPlayerTurn = 1
             endItem()
             break
         case .damageEnemyHealSelf:
-            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") usa \(item.name ?? ""), si cura e danneggia l'avversario!")
+            self.combatScene?.controlsView.narrate(text: "\(byFighter.name ?? "") use \(item.name ?? ""), si cura e danneggia l'avversario!")
             self.combatScene?.playerView.healFighterWith(item: item)
             self.combatScene?.opponentView.damageFighterWith(item: item)
             endItem()

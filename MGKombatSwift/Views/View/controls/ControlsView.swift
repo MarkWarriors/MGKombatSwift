@@ -29,16 +29,46 @@ class ControlsView: GenericView, UICollectionViewDataSource, UICollectionViewDel
     var optionsCall : (()->())?
     
     internal var fighter : Fighter?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        narrationLbl.text = ""
-        
-        fightActionCollectionView.register(UINib.init(nibName: FightActionCell.Identifier, bundle: nil), forCellWithReuseIdentifier: FightActionCell.Identifier)
-        
-        resetToInitialViewState()
+    // MARK: LAYOUT INITIALIZATION
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    override func commonInit() {
+        let customViewNib = loadFromNib()
+        customViewNib.frame = bounds
+        customViewNib.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        addSubview(customViewNib)
+    }
+    
+    override func loadFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        return view
+    }
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        xibSetup()
+    }
+    
+    func xibSetup(){
+        narrationLbl.text = ""
+        fightActionCollectionView.register(UINib.init(nibName: FightActionCell.Identifier, bundle: nil), forCellWithReuseIdentifier: FightActionCell.Identifier)
+        resetToInitialViewState()
+    }
+
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
     
     func generateViewFor(fighter: Fighter){
         self.fighter = fighter
@@ -70,10 +100,10 @@ class ControlsView: GenericView, UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == fightActionCollectionView {
-            return (self.fighter?.actions.count)!
+            return (self.fighter?.actions.count ?? 0)
         }
         else{
-            return (self.fighter?.items.count)!
+            return (self.fighter?.items.count ?? 0)
         }
     }
     

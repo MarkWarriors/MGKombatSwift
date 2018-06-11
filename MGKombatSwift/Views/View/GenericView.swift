@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+
 class GenericView: UIView {
     
+    // MARK: LAYOUT INITIALIZATION
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -23,11 +25,22 @@ class GenericView: UIView {
     }
     
     func commonInit() {
-        let view : UIView? = Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)![0] as? UIView
-        if view != nil {
-            addSubview(view!)
-            view?.frame = self.bounds
-        }
+        let customViewNib = loadFromNib()
+        customViewNib.frame = bounds
+        customViewNib.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        addSubview(customViewNib)
     }
     
+    func loadFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        return view
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
+    
+
 }

@@ -46,12 +46,4 @@ class CombatSceneVC: UIViewController {
         }
     }
 
-    
-    
-    
-
-
-   
-
-
 }

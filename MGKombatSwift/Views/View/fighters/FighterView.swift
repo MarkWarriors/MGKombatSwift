@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class FighterView: GenericView {
     
     @IBOutlet weak var itemImageView: UIImageView!
@@ -19,6 +20,57 @@ class FighterView: GenericView {
     @IBOutlet weak var fighterHealthNumber: UILabel!
     
     internal var fighter : Fighter?
+    
+    // MARK: LAYOUT INITIALIZATION
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    override func commonInit() {
+        let customViewNib = loadFromNib()
+        customViewNib.frame = bounds
+        customViewNib.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        addSubview(customViewNib)
+    }
+    
+    override func loadFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        return view
+    }
+    
+    override open func awakeFromNib() {
+        super.awakeFromNib()
+        xibSetup()
+    }
+    
+    func xibSetup(){
+        self.fighterImageView.alpha = 1
+        self.itemImageView.image = nil
+        self.fighterImageView.image = nil
+        self.fighterName.text = "Fighter name"
+        self.fighterLevel.text = "0"
+        self.fighterHealth.setProgress(0.5, animated: false)
+        self.fighterHealthNumber?.text = "0/0"
+    }
+    
+    override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        itemImageView.prepareForInterfaceBuilder()
+        fighterImageView.prepareForInterfaceBuilder()
+        fighterName.prepareForInterfaceBuilder()
+        fighterLevel.prepareForInterfaceBuilder()
+        fighterHealth.prepareForInterfaceBuilder()
+        fighterHealthNumber.prepareForInterfaceBuilder()
+    }
     
     func healFighterWith(item: FighterItem){
         Animations.animate(view: self.fighterImageView, animationType: item.animation)

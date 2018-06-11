@@ -11,9 +11,14 @@ import UIKit
 
 class WinSceneVC: UIViewController {
 
+    @IBOutlet weak var playerImageView: UIImageView!
+    
+    public var winnerFighter : Fighter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.alpha = 0
+        self.playerImageView.image = winnerFighter?.image
     }
 
     override func viewDidAppear(_ animated: Bool) {

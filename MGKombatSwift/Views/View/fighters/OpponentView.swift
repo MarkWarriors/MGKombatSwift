@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
+@IBDesignable
 class OpponentView: FighterView {
 
     var fightActionCall : ((_ action: FightAction)->())?
     var itemsActionCall : ((_ action: FighterItem)->())?
-    
+
     func artificialInteligenceFightTurn(){
         let randomAttack = self.fighter?.randomAttack()
         self.fightActionCall?(randomAttack!)
