@@ -29,11 +29,12 @@ class SelectLocationVC: UIViewController, MGCollectionViewProtocol  {
                 locationsCollectionView.deselectItem(at: indexPath, animated: false)
             }
         }
+        locationsCollectionView.autoDeselectItem = false
+        locationsCollectionView.protocolDelegate = self
         locationsCollectionView.allowsMultipleSelection = false
         locationsCollectionView.pullToRefresh = false
         locationsCollectionView.cellIdentifier = LocationSelectionCell.Identifier
         locationsCollectionView.cellNib = UINib.init(nibName: LocationSelectionCell.Identifier, bundle: nil)
-        locationsCollectionView.protocolDelegate = self
         locationsCollectionView.initWithCellFixedNumberOf((iphonePortrait: 2, iphoneLandscape: 3, ipadPortrait: 3, ipadLandscape: 6), cellProportions:  (width: 1, height: 1), andSpacing: (top: 8, left: 8, bottom: 8, right: 8))
         GameInstance.game.location = nil
 
