@@ -35,7 +35,7 @@ class SelectLocationVC: UIViewController, MGCollectionViewProtocol  {
         locationsCollectionView.pullToRefresh = false
         locationsCollectionView.cellIdentifier = LocationSelectionCell.Identifier
         locationsCollectionView.cellNib = UINib.init(nibName: LocationSelectionCell.Identifier, bundle: nil)
-        locationsCollectionView.initWithCellFixedNumberOf((iphonePortrait: 2, iphoneLandscape: 3, ipadPortrait: 3, ipadLandscape: 6), cellProportions:  (width: 1, height: 1), andSpacing: (top: 8, left: 8, bottom: 8, right: 8))
+        locationsCollectionView.initWithCellFixedNumberOfCellsForRow(MGCellForRows.init(iPhonePortrait: 2, iPhoneLandscape: 3, iPadPortrait: 3, iPadLandscape: 6), cellProportions: CGSize.init(width: 1, height: 1), andSpacing: UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8))
         GameInstance.game.location = nil
 
         

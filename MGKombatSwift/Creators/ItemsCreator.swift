@@ -46,6 +46,7 @@ class ItemsCreator : NSObject {
     
     public func tagTeamMark(x: Int) -> FighterItem {
         let item : FighterItem = FighterItem.init()
+        item.name = "MARK PLZ!!"
         item.itemAssociatedFighter = FighterCreator.shared.mark(isTagTeam: true)
         item.amount = x
         item.effect = .tagTeamHelp
